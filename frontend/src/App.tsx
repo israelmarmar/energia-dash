@@ -20,6 +20,8 @@ import CardActions from '@mui/material/CardActions';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 interface User {
@@ -54,10 +56,10 @@ function App() {
   const queryData = async (query: string) => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/users?q=${query}`);
-      console.log(data.data);
       setData(data.data);
     } catch (error) {
       console.error('Error reading file:', error);
+      toast.error('Error reading file')
     }
   }
 
@@ -78,16 +80,8 @@ function App() {
       queryData('');
     } catch (error) {
       console.error('Error uploading file:', error);
+      toast.error('Error uploading file')
     }
-  };
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
   };
 
   const search = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -104,6 +98,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer />
       <header className="App-header">
         {!data ? <CsvUploader file={file} setFile={setFile} handleSubmit={handleSubmit} /> :
           <>
