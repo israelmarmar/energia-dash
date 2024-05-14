@@ -5,7 +5,7 @@ import * as formidable from "formidable";
 import cors from "cors";
 import fs from "fs";
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 let users: User[] = [];
 
 interface User {
