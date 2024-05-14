@@ -120,7 +120,7 @@ function App() {
             />
             <br />
             {data.map((row: User, index: number) => (
-              <Card sx={{ width: 345 }}>
+              <Card sx={{ width: 345 }} onClick={()=>handleExpandClick(index)}>
                 <CardHeader
                   title={row.name}
                 />
