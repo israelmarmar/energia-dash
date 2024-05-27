@@ -114,7 +114,12 @@ app.get("/bills", async (req: Request, res: Response) => {
 app.get('/download/:path', function(req, res){
   const file = `${__dirname}/../uploads/${req.params.path}`;
   console.log(file)
-  res.download(file); // Set disposition and send it.
+  res.download(file, (err) => {
+    if (err) {
+        // Handle errors, such as file not found
+        res.status(404).send('File not found');
+    }
+});
 });
 
 const PORT = process.env.PORT || 3000;
