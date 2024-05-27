@@ -6,12 +6,10 @@ import path from 'path';
 const prisma = new PrismaClient();
 
 beforeAll(async () => {
-  // Limpar a tabela energyData antes de iniciar os testes
   await prisma.energyData.deleteMany();
 });
 
 afterAll(async () => {
-  // Fechar a conexão com o Prisma após os testes
   await prisma.$disconnect();
 });
 
@@ -48,7 +46,7 @@ describe('GET /bills', () => {
 describe('GET /download/:path', () => {
 
   it('should return an error if file does not exist', async () => {
-    const res = await request(app).get('/download/nonexistent.pdf');
+    const res = await request(app).get('/download/naoexiste.pdf');
 
     expect(res.status).toBe(404);
   });
