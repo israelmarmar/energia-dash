@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EnergyData {
+  id            Int     @id @default(autoincrement())
+  nClient       String
+  energiaQtSCEE Float?
+  energiaVSCEE  Float?
+  energiaVGDI   Float?
+  energiaQtGDI  Float?
+  month         String
+  energiaQt     Float
+  energiaV      Float
+  contribMun    Float
+  date          DateTime
+  pathFile      String
+}

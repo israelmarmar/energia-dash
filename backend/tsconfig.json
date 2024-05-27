@@ -5,7 +5,9 @@
       "outDir": "./dist",
       "rootDir": "./src",
       "strict": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "checkJs": false,
+      "lib": ["es2020.string"]
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules"]

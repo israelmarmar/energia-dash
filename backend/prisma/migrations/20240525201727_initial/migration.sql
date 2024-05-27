@@ -1,0 +1,15 @@
+-- CreateTable
+CREATE TABLE "EnergyData" (
+    "id" SERIAL NOT NULL,
+    "nClient" TEXT NOT NULL,
+    "energiaQtSCEE" DOUBLE PRECISION NOT NULL,
+    "energiaVSCEE" DOUBLE PRECISION NOT NULL,
+    "energiaVGDI" DOUBLE PRECISION NOT NULL,
+    "energiaQtGDI" DOUBLE PRECISION NOT NULL,
+    "month" TEXT NOT NULL,
+    "energiaQt" DOUBLE PRECISION NOT NULL,
+    "energiaV" DOUBLE PRECISION NOT NULL,
+    "contribMun" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "EnergyData_pkey" PRIMARY KEY ("id")
+);

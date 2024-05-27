@@ -1,12 +1,12 @@
 import React, { ChangeEvent, Dispatch, FormEvent } from 'react';
 
-type ICsvUploaderProps = {
+type IUploaderProps = {
   file: any
   setFile: Dispatch<any>
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
-const CsvUploader: React.FC<ICsvUploaderProps> = ({file, setFile, handleSubmit}) => {
+const Uploader: React.FC<IUploaderProps> = ({file, setFile, handleSubmit}) => {
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -16,7 +16,7 @@ const CsvUploader: React.FC<ICsvUploaderProps> = ({file, setFile, handleSubmit})
 
   return (
     <div style={styles.container}>
-      <h2>Upload CSV File</h2>
+      <h2>Upload  File</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="file-upload" style={styles.label}>
           <div style={styles.box}>
@@ -26,7 +26,7 @@ const CsvUploader: React.FC<ICsvUploaderProps> = ({file, setFile, handleSubmit})
         <input
           id="file-upload"
           type="file"
-          accept=".csv"
+          accept="."
           onChange={handleFileChange}
           style={styles.input}
         />
@@ -41,6 +41,7 @@ const styles = {
     padding: '20px',
     border: '2px dashed #ccc',
     borderRadius: '5px',
+    marginTop: '50px',
     marginBottom: '20px',
   },
   label: {
@@ -67,4 +68,4 @@ const styles = {
 };
 
 
-export default CsvUploader;
+export default Uploader;

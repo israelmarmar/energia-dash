@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "EnergyData" ALTER COLUMN "energiaVSCEE" DROP NOT NULL,
+ALTER COLUMN "energiaQtGDI" DROP NOT NULL;
